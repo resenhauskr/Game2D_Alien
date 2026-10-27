@@ -206,3 +206,7 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 monkeytype.sqlite3
+htmlcov/
+.coverage
+relatorio.html
+.pytest_cache/
