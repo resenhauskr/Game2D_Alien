@@ -1,6 +1,7 @@
 """Dublês de teste (stubs) usados nos testes do Game2D_Alien."""
 
 import pygame
+from desconto import IDesconto
 
 
 class StubSettings:
@@ -43,3 +44,10 @@ class StubEdgeAlien(StubAlien):
 
     def check_edges(self) -> bool:
         return True
+
+
+class StubSemDesconto(IDesconto):
+    """Stub de desconto: sempre devolve 0, sem depender das classes reais."""
+
+    def calcular(self, valor):
+        return 0
