@@ -1,9 +1,10 @@
 import pygame
 
 from bullet import Bullet
+from interfaces import BulletUpdater, Shooter
 
 
-class BulletManager:
+class BulletManager(Shooter, BulletUpdater):
     """Responsável apenas por criar, atualizar e desenhar os projéteis."""
 
     def __init__(self, screen, settings, ship) -> None:
@@ -12,13 +13,13 @@ class BulletManager:
         self.ship = ship
         self.bullets = pygame.sprite.Group()
 
-    def _fire_bullet(self) -> None:
+    def fire_bullet(self) -> None:
         """Dispara um projétil se o limite de projéteis ainda não tiver sido alcançado."""
         if len(self.bullets) < self.settings.bullet_allowed:
             new_bullet = Bullet(self.screen, self.settings, self.ship)
             self.bullets.add(new_bullet)
 
-    def _update_bullets(self, aliens) -> None:
+    def update_bullets(self, aliens) -> None:
         """Atualiza a posição dos projéteis e se livra dos projéteis antigos."""
         self.bullets.update()
         self._remove_offscreen_bullets()

@@ -3,9 +3,10 @@ import sys
 import pygame
 
 from alien import Alien
+from interfaces import FleetUpdater
 
 
-class FleetManager:
+class FleetManager(FleetUpdater):
     """Responsável por criar e gerenciar a frota de alienígenas."""
 
     def __init__(self, screen, settings, ship, alien_class=Alien) -> None:
@@ -53,7 +54,7 @@ class FleetManager:
                 # Cria um alienígena e o posiciona na linha
                 self._create_alien(alien_number, row_number, alien_width, alien_height)
 
-    def _update_aliens(self) -> None:
+    def update_aliens(self) -> None:
         """Verifica se a frota de alienígenas está em uma borda, então atualiza as posições de todos os alienígenas na frota."""
         self._check_fleet_edges()
         self.aliens.update()

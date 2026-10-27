@@ -45,8 +45,8 @@ class AlienInvasion:
     def _update_game_state(self) -> None:
         """Atualiza a posição da nave, dos projéteis e dos alienígenas."""
         self.ship.update()
-        self.bullet_manager._update_bullets(self.fleet_manager.aliens)
-        self.fleet_manager._update_aliens()
+        self.bullet_manager.update_bullets(self.fleet_manager.aliens)
+        self.fleet_manager.update_aliens()
 
     def run_game(self) -> None:
         """Cria um laço de repetição para a tela sempre ficar visível até
